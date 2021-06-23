@@ -3,15 +3,9 @@ const router = express.Router()
 const Data = require("./../models/data")
 
 router.get("/", async (req, res) => {
-  const data = await Data.findOne().sort({ date: "desc" })
-  //console.log("data" + data)
-  res.render("index", { lastData: data })
+  const all = await Data.find().sort({ date: "desc" })
+  //res.render("public/js/chart", { datas: all })
+  res.render("index", { datas: all })
 })
-
-// router.get("/all", async (req, res) => {
-//   const data = await Data.find().sort({ date: "desc" })
-//   //console.log("data" + data)
-//   res.render("index", { datas: data })
-// })
 
 module.exports = router

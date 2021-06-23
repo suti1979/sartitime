@@ -11,14 +11,28 @@
       crossorigin="anonymous"
     />
     <script src="/js/script.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
+    <script
+      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
+      defer
+    ></script>
+    <script type="module" src="/js/chart.js"></script>
     <title>Sarti Time</title>
   </head>
   <body>
     <div class="container">
-      Utolsó mintavétel: <%= lastData.date.toLocaleDateString() %>, <%=
-      lastData.date.getHours() %>:<%= lastData.date.getMinutes() %>, Várható
-      utazási idő:
-      <span id="milis"><%= lastData.time %></span>
+      <h1>SARTI Time</h1>
+      <div>
+        Utolsó mintavétel: <%= datas[0].date.toLocaleDateString() %>, <%=
+        datas[0].date.getHours() %>:<%= datas[0].date.getMinutes() %>, Várható
+        utazási idő: <span id="milis"><%= datas[0].time %></span>
+      </div>
+      <div>Adatok száma: <%= datas.length %></div>
+      <div>
+        <canvas id="chart"
+          >Sajnos a böngésződ nem támogatja a diagram megjelenítését.</canvas
+        >
+      </div>
     </div>
   </body>
 </html>

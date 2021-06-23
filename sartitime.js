@@ -6,7 +6,7 @@ const Data = require("./models/data")
 
 const app = express()
 const HOST = "localhost"
-const PORT = 5000
+const PORT = 4200
 const db_name = process.env.DB_NAME
 const db_psw = process.env.DB_PSW
 

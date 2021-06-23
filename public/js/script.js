@@ -7,8 +7,11 @@ const convertMilisToHrsMins = (mins) => {
   return `${h}:${m}`
 }
 
-const changeToHourMinute = document.getElementById("milis")
-//console.log(changeToHourMinute.innerText)
-changeToHourMinute.innerText = convertMilisToHrsMins(
-  changeToHourMinute.innerText
-)
+const changeToHourMinute = document.querySelectorAll("#milis")
+changeToHourMinute.forEach((e) => {
+  e.innerText = convertMilisToHrsMins(e.innerText)
+})
+
+// <% friday.forEach(f => {%>
+//   <div><%= f.date.getDay() %> <span id="milis"><%= f.time %></span></div>
+//   <%})%>
