@@ -34,5 +34,13 @@
         >
       </div>
     </div>
+    <div id="tests"></div>
+    <script defer>
+      let test = "<%=JSON.stringify(order)%>" // :)
+
+      //console.log(test)
+      const tests = document.getElementById("tests")
+      tests.innerText = test
+    </script>
   </body>
 </html>
