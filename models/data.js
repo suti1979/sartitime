@@ -5,4 +5,4 @@ const dataSchema = new mongoose.Schema({
   date: { type: Date, default: Date.now },
 })
 
-module.exports = mongoose.model("sartis", dataSchema) //in the " " the collction name
+module.exports = mongoose.model("sarti_pesses", dataSchema) //in the " " the collction name

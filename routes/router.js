@@ -5,7 +5,7 @@ const Data = require("./../models/data")
 router.get("/", async (req, res) => {
   const all = await Data.find().sort({ date: "desc" })
   const order = convertChartData(all)
-  //console.log(order)
+  console.log(all)
   res.render("index", { datas: all, order: order })
 })
 
