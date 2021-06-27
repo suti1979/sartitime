@@ -12,11 +12,7 @@
     />
     <script src="/js/script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script
-      src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"
-      defer
-    ></script>
-    <script type="module" src="/js/chart.js"></script>
+    <script src="/js/chart.js" type="module"></script>
     <title>Sarti Time</title>
   </head>
   <body>
@@ -34,13 +30,9 @@
         >
       </div>
     </div>
-    <div id="tests"></div>
-    <script defer>
-      let test = "<%=JSON.stringify(order)%>" // :)
-
-      //console.log(test)
-      const tests = document.getElementById("tests")
-      tests.innerText = test
+    <div id="tests"><%= //JSON.stringify(order) %></div>
+    <script type="module">
+      //let chartData = "<%= //JSON.stringify(order[0]) %>" //x,y,r
     </script>
   </body>
 </html>
