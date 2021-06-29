@@ -6,10 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link
       rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+      integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Trirong"
+    />
+    <style>
+      body {
+        font-family: "Trirong", serif;
+      }
+    </style>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-Piv4xVNRyMGpqkS2by6br4gNJ7DXjqk09RmUpJ8jgGtD7zP9yug3goQfGII0yAns"
+      crossorigin="anonymous"
+    ></script>
     <script src="/js/script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
     <script src="/js/chart.js" type="module"></script>
@@ -17,17 +37,50 @@
   </head>
   <body>
     <div class="container">
-      <h1>SARTI Time</h1>
-      <div>
-        Utolsó mintavétel: <%= datas[0].date.toLocaleDateString() %>, <%=
-        datas[0].date.getHours() %>:<%= datas[0].date.getMinutes() %>, Várható
-        utazási idő: <span id="milis"><%= datas[0].time %></span>
+      <div class="alert alert-primary mt-1">
+        <h3 class="mt-1"><strong>SARTI Time</strong></h3>
       </div>
-      <div>Adatok száma: <%= datas.length %></div>
-      <div>
+      <div class="row pl-3">
+        Utolsó mintavétel: <%= datas[0].date.toLocaleDateString() %> <%=
+        datas[0].date.getHours() %>:<%= datas[0].date.getMinutes() %>
+      </div>
+      <div class="row pl-3">
+        Várható utazási idő:
+        <span class="badge badge-primary p-1 ml-1" id="milis"
+          ><%= datas[0].time %></span
+        >
+      </div>
+      <div class="row pl-3">Adatok száma: <%= datas.length %></div>
+      <div class="row p-3">
         <canvas id="chart"
           >Sajnos a böngésződ nem támogatja a diagram megjelenítését.</canvas
         >
+      </div>
+      <div class="row pl-3">
+        <table class="table">
+          <thead>
+            <tr>
+              <th>Indulási idő</th>
+              <th>Nap</th>
+              <th>Várható utazási idő:</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% datas.forEach(e => { %>
+            <tr>
+              <td><%= e.date.getHours() %>:<%= e.date.getMinutes() %></td>
+              <td>
+                <span id="day"><%= e.date.getDay() %></span>
+              </td>
+              <td>
+                <span class="badge badge-primary p-1 ml-1" id="milis"
+                  ><%= e.time %></span
+                >
+              </td>
+            </tr>
+            <% }) %>
+          </tbody>
+        </table>
       </div>
     </div>
     <div id="tests"><%= //JSON.stringify(order) %></div>
