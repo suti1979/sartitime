@@ -5,7 +5,7 @@ const router = require("./routes/router")
 const Data = require("./models/data")
 
 const app = express()
-const HOST = "localhost"
+const HOST = "127.0.0.1"
 const PORT = 4200
 const db_name = process.env.DB_NAME
 const db_psw = process.env.DB_PSW
