@@ -56,7 +56,7 @@
           >Sajnos a böngésződ nem támogatja a diagram megjelenítését.</canvas
         >
       </div>
-      <div class="row pl-3">
+      <!-- <div class="row pl-3">
         <table class="table">
           <thead>
             <tr>
@@ -66,22 +66,22 @@
             </tr>
           </thead>
           <tbody>
-            <% datas.forEach(e => { %>
+            <%# datas.forEach(e => { %>
             <tr>
-              <td><%= e.date.getHours() %>:<%= e.date.getMinutes() %></td>
+              <td><%#= e.date.getHours() %>:<%#= e.date.getMinutes() %></td>
               <td>
-                <span id="day"><%= e.date.getDay() %></span>
+                <span id="day"><%#= e.date.getDay() %></span>
               </td>
               <td>
                 <span class="badge badge-primary p-1 ml-1" id="milis"
-                  ><%= e.time %></span
+                  ><%#= e.time %></span
                 >
               </td>
             </tr>
-            <% }) %>
+            <%# }) %>
           </tbody>
         </table>
-      </div>
+      </div> -->
     </div>
     <div id="tests"><%= //JSON.stringify(order) %></div>
     <script type="module">
