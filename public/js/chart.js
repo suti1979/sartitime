@@ -1,8 +1,8 @@
 const data = {
-  xLabels: ["January", "February", "March", "April", "May", "June", "July"],
+  //xLabels: ["January", "February", "March", "April", "May", "June", "July"],
   datasets: [
     {
-      label: "Statisztika alpjána legjobb indulási idő",
+      label: "Travel time / departure time",
       data: [
         { x: 0, y: 22, r: 4.4112 },
         { x: 1, y: 19, r: 4.3836 },
@@ -20,32 +20,7 @@ const data = {
 const config = {
   type: "bubble",
   data: data,
-  options: {
-    responsive: true,
-    title: {
-      display: true,
-      text: "Wxcxc",
-    },
-    scales: {
-      xAxes: [
-        {
-          // will this create y-axis with days of week?
-          type: "category",
-          position: "left",
-        },
-      ],
-      yAxes: [
-        {
-          type: "time",
-          time: {
-            displayFormats: {
-              minute: "hh:mm a",
-            },
-          },
-        },
-      ],
-    },
-  },
+  options: {},
 }
 
 const chart = new Chart(document.getElementById("chart"), config)
