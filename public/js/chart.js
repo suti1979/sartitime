@@ -9,12 +9,8 @@ fetch("./sartitime/api")
     console.warn("Something went wrong.", err)
   })
 
-// SAMPLE
-// { x: 4, y: 8, r: 4.3819 },
-// { x: 6, y: 17, r: 9.4302 },
-
 function chartDraw(datas) {
-  //console.log(datas)
+  datas = convertDataForChart(datas)
   const data = {
     yLabels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
@@ -35,7 +31,18 @@ function chartDraw(datas) {
   const chart = new Chart(document.getElementById("chart"), config)
 }
 
-// module.exports = {
-//   actions: [],
-//   config: config,
-// }
+function convertDataForChart(datas) {
+  let convertedData = []
+
+  datas.forEach((row) => {
+    let date = new Date(row.date)
+    let r = {
+      x: date.getDay(),
+      y: date.getHours(),
+      r: row.time / 10000,
+    }
+    convertedData.push(r)
+  })
+
+  return convertedData
+}
