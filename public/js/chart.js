@@ -1,4 +1,4 @@
-fetch("./sartitime/api_stat")
+fetch("./sartitime/api")
   .then((response) => {
     return response.json()
   })
@@ -9,8 +9,12 @@ fetch("./sartitime/api_stat")
     console.warn("Something went wrong.", err)
   })
 
+// SAMPLE
+// { x: 4, y: 8, r: 4.3819 },
+// { x: 6, y: 17, r: 9.4302 },
+
 function chartDraw(datas) {
-  console.log(datas)
+  //console.log(datas)
   const data = {
     yLabels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
