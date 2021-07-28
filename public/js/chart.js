@@ -12,6 +12,7 @@ fetch("./sartitime/api_stat")
 function chartDraw(datas) {
   datas = convertDataForChart(datas)
   const data = {
+    labels: [{ 0: "Sun", 1: "Mon" }],
     datasets: [
       {
         label: "Best travel time / departure time",
@@ -31,9 +32,13 @@ function chartDraw(datas) {
   const config = {
     type: "bubble",
     data: data,
-    options: {},
+    options: {
+      responsive: true,
+      scales: {
+        x: ["Sun", "Mon", "Thu", "Wen", "Tru", "Fri", "Sat"],
+      },
+    },
   }
-
   const chart = new Chart(document.getElementById("chart"), config)
 }
 
@@ -52,5 +57,6 @@ function convertDataForChart(datas) {
   const lengthOfData = convertedData.length
   const worstTimes = convertedData.slice(lengthOfData - 40, lengthOfData)
   const bestTimes = convertedData.slice(10, 50)
+
   return [bestTimes, worstTimes]
 }
