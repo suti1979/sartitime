@@ -1,4 +1,4 @@
-fetch("./sartitime/api")
+fetch("./sartitime/api_stat")
   .then((response) => {
     return response.json()
   })
@@ -6,18 +6,24 @@ fetch("./sartitime/api")
     chartDraw(data)
   })
   .catch(function (err) {
-    console.warn("Something went wrong.", err)
+    console.warn("Something went wrong sorry.", err)
   })
 
 function chartDraw(datas) {
   datas = convertDataForChart(datas)
   const data = {
-    yLabels: ["January", "February", "March", "April", "May", "June", "July"],
     datasets: [
       {
-        label: "Travel time / departure time",
-        data: datas,
-        backgroundColor: "blue",
+        label: "Best travel time / departure time",
+        data: datas[0],
+        borderColor: "darkblue",
+        backgroundColor: "lightblue",
+      },
+      {
+        label: "Worst travel time / departure time",
+        data: datas[1],
+        borderColor: "darkred",
+        backgroundColor: "red",
       },
     ],
   }
@@ -43,6 +49,8 @@ function convertDataForChart(datas) {
     }
     convertedData.push(r)
   })
-
-  return convertedData
+  const lengthOfData = convertedData.length
+  const worstTimes = convertedData.slice(lengthOfData - 40, lengthOfData)
+  const bestTimes = convertedData.slice(10, 50)
+  return [bestTimes, worstTimes]
 }
