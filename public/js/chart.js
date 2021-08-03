@@ -4,6 +4,7 @@ fetch("./sartitime/api_stat")
   })
   .then((data) => {
     chartDraw(data)
+    document.getElementById("loader").style.display = "none"
   })
   .catch(function (err) {
     console.warn("Something went wrong sorry.", err)

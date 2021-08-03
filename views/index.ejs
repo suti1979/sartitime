@@ -71,13 +71,16 @@
       </div>
       <div class="row pl-3">
         <i class="fas fa-vial col-1"></i
-        ><span class="">Samples number (2021): <%= count %></span>
+        ><span class="">Samples number (2021 summer): <%= count %></span>
       </div>
       <div class="row pl-3">
         <i class="fas fa-database col-1"></i
         ><a href="./sartitime/api">All data API (JSON)</a>
       </div>
       <div class="row p-3">
+        <div class="spinner-border text-primary" id="loader" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
         <canvas id="chart"
           >Your browser not capable of showing the chart, sorry.</canvas
         >
