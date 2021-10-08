@@ -8,7 +8,7 @@ console.log(path.join(__dirname))
 
 const app = express()
 const HOST = "127.0.0.1"
-const PORT = 4200
+const PORT = 4201
 const db_name = process.env.DB_NAME
 const db_psw = process.env.DB_PSW
 
@@ -20,7 +20,9 @@ mongoose.connect(uri, {
 
 app.set("view engine", "ejs")
 app.use("/sartitime", router)
-app.use(express.static(path.join(__dirname, "public")))
+//app.use(express.static(path.join(__dirname, "public")))
+app.use(express.static("public"))
+//app.use(express.static("sartitime/public"))
 
 app.listen(PORT, HOST, () =>
   console.log(`Server started @ ${HOST} port ${PORT}`)
