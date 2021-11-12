@@ -18,6 +18,10 @@
       body {
         font-family: "Trirong", serif;
       }
+      .container {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
+          0 6px 20px 0 rgba(0, 0, 0, 0.19);
+      }
     </style>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
@@ -41,11 +45,11 @@
     <title>Sarti Time</title>
   </head>
   <body>
-    <div class="container">
-      <div class="alert alert-primary mt-1">
-        <h3 class="mt-1"><strong>SARTI Time</strong></h3>
+    <div class="container p-3">
+      <div class="alert alert-primary">
+        <h3 class="mt-2"><strong>SARTI Time</strong></h3>
       </div>
-      <blockquote class="blockquote">
+      <blockquote class="blockquote text-justify">
         <p>
           Duration - summer 2021 - time calculator between Budapest, Hungary 🇭🇺
           and Sarti, Greece 🇬🇷 using Google Distance Matrix Api
@@ -64,31 +68,31 @@
         "2-digit" , day : "2-digit" , hour:"2-digit", minute:"2-digit"}) %>
       </div>
       <div class="row pl-3">
-        <i class="far fa-clock col-1"></i>Calculated travel time:
-        <span class="badge badge-primary p-1 ml-1" id="milis"
-          ><%= lastCheck.time %></span
+        <i class="far fa-clock col-1"></i> Calculated travel time:
+        <span class="badge badge-primary p-1 ml-1" id="milis"></span>
+          <%= lastCheck.time %></span
         >
       </div>
       <div class="row pl-3">
         <i class="fas fa-vial col-1"></i
-        ><span class="">Samples number (2021 summer): <%= count %></span>
+        ><span class=""> Samples number (2021 summer): <%= count %></span>
       </div>
       <div class="row pl-3">
         <i class="fas fa-database col-1"></i
-        ><a href="./sartitime/api">All data API (JSON)</a>
+        ><a href="./sartitime/api"> All data API (JSON)</a>
       </div>
       <div class="row p-3">
         <div class="spinner-border text-primary" id="loader" role="status">
-          <span class="sr-only">Loading...</span>
+          <span class="sr-only"> Loading...</span>
         </div>
         <canvas id="chart"
           >Your browser not capable of showing the chart, sorry.</canvas
         >
       </div>
 
-      <footer class="blockquote-footer">
+      <footer class="blockquote-footer pb-3 text-right">
         <a href="https://github.com/suti1979/sartitime" target="_blank">
-          Copyright (c) 2021 - ledurts.hu - MIT Licence</a
+          Copyright (c) 2021 - ledurts.hu</a
         >
       </footer>
     </div>
