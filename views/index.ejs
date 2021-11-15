@@ -10,19 +10,11 @@
       integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l"
       crossorigin="anonymous"
     />
+    <link rel="stylesheet" href="./css/sartiStyle.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Trirong"
     />
-    <style>
-      body {
-        font-family: "Trirong", serif;
-      }
-      .container {
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2),
-          0 6px 20px 0 rgba(0, 0, 0, 0.19);
-      }
-    </style>
     <script
       src="https://code.jquery.com/jquery-3.6.0.min.js"
       integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
@@ -35,13 +27,10 @@
       crossorigin="anonymous"
       defer
     ></script>
-    <script
-      src="https://kit.fontawesome.com/a5101666be.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="/js/script.js" defer></script>
+
+    <script src="./js/script.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js" defer></script>
-    <script src="/js/chart.js" type="module"></script>
+    <script src="./js/chart.js" type="module"></script>
     <title>Sarti Time</title>
   </head>
   <body>
@@ -63,27 +52,25 @@
         >
       </div>
       <div class="row pl-3">
-        <i class="fas fa-flag-checkered col-1"></i>Last check: <%=
+        <span class="mr-3">&#127937;</span>Last check: <%=
         lastCheck.date.toLocaleDateString('hu-HU', {year: "numeric" , month :
         "2-digit" , day : "2-digit" , hour:"2-digit", minute:"2-digit"}) %>
       </div>
       <div class="row pl-3">
-        <i class="far fa-clock col-1"></i> Calculated travel time:
-        <span class="badge badge-primary p-1 ml-1" id="milis"></span>
-          <%= lastCheck.time %></span
-        >
+        <span class="mr-3">&#9201;</span>Calculated travel time:
+        <span id="milis" class="ml-1"><%= lastCheck.time %></span>
       </div>
       <div class="row pl-3">
-        <i class="fas fa-vial col-1"></i
-        ><span class=""> Samples number (2021 summer): <%= count %></span>
+        <span class="mr-3">&#129514;</span>
+        <span>Samples number (2021 summer): <%= count %></span>
       </div>
       <div class="row pl-3">
-        <i class="fas fa-database col-1"></i
-        ><a href="./sartitime/api"> All data API (JSON)</a>
+        <span class="mr-3">&#128190;</span>
+        <a href="./sartitime/api">All data API (JSON)</a>
       </div>
       <div class="row p-3">
         <div class="spinner-border text-primary" id="loader" role="status">
-          <span class="sr-only"> Loading...</span>
+          <span class="sr-only">Loading...</span>
         </div>
         <canvas id="chart"
           >Your browser not capable of showing the chart, sorry.</canvas
