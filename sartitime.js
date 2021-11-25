@@ -3,7 +3,7 @@ const express = require("express")
 const mongoose = require("mongoose")
 const router = require("./routes/router")
 const Data = require("./models/data")
-const path = require("path")
+//const path = require("path")
 
 const app = express()
 const HOST = "127.0.0.1"
@@ -18,8 +18,9 @@ mongoose.connect(uri, {
 })
 
 app.set("view engine", "ejs")
-app.use("/sartitime", router)
-app.use(express.static(path.join(__dirname, "public")))
+app.use(router)
+//app.use("/sartitime", router)
+app.use(express.static("public"))
 
 app.listen(PORT, HOST, () =>
   console.log(`Server started @ ${HOST} port ${PORT}`)

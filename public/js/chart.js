@@ -1,4 +1,4 @@
-fetch("./sartitime/api_stat")
+fetch("/api_stat")
   .then((response) => {
     return response.json()
   })
