@@ -18,9 +18,9 @@ mongoose.connect(uri, {
 })
 
 app.set("view engine", "ejs")
-app.use(router)
-//app.use("/sartitime", router)
+
 app.use(express.static("public"))
+app.use(router) //!! afrer static
 
 app.listen(PORT, HOST, () =>
   console.log(`Server started @ ${HOST} port ${PORT}`)
