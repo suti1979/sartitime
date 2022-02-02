@@ -1,0 +1,5 @@
+// MongoDB Playground
+
+use('sarti');
+
+db.sarti_pesses.find();

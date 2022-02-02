@@ -8,14 +8,25 @@ router.get("/", async (req, res) => {
   res.render("index", { lastCheck: lastCheck, count: count })
 })
 
-router.get("/api", async (req, res) => {
-  const all = await Data.find()
-  res.json(all)
+router.get("/api", checkApiKey, async (req, res) => {
+  await Data.find()
+    .then((all) => res.json(all))
+    .catch((err) => res.send("Error" + err))
 })
 
 router.get("/api_stat", async (req, res) => {
-  const all = await Data.find().sort({ time: "asc" })
-  res.json(all)
+  //console.log(req.query)
+  await Data.find()
+    .sort({ time: "asc" })
+    .then((all) => res.json(all))
+    .catch((err) => res.send("Error" + err))
 })
+
+function checkApiKey(req, res, next) {
+  if (req.query.apikey != "sarti") {
+    next(401)
+  }
+  next()
+}
 
 module.exports = router
